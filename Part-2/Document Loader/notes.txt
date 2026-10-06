@@ -1,0 +1,257 @@
+NumPy Notes – Full Structure
+1. 🔹 Introduction to NumPy
+•	What is NumPy? 
+•	Why NumPy is faster than Python lists 
+•	Applications (data science, ML, scientific computing) 
+•	Installing NumPy (pip install numpy) 
+•	Import convention:
+import numpy as np
+________________________________________
+2. 🔹 NumPy Arrays (Core Concept)
+This is the most important topic.
+•	What is ndarray 
+•	Creating arrays:
+np.array([1, 2, 3])
+np.zeros((2,3))
+np.ones((2,2))
+np.arange(0,10)
+np.linspace(0,1,5)
+np.random.rand(2,3)
+•	Array attributes: 
+o	ndim 
+o	shape 
+o	size 
+o	dtype 
+________________________________________
+3. 🔹 Indexing & Slicing
+•	1D, 2D, 3D indexing 
+•	Slicing:
+arr[1:5]
+arr[:, 1]
+arr[0, :]
+•	Boolean indexing:
+arr[arr > 5]
+________________________________________
+4. 🔹 Data Types (dtype)
+•	Integer, float, boolean 
+•	Changing dtype:
+arr.astype(float)
+•	Importance of dtype (memory + performance) 
+________________________________________
+5. 🔹 Array Operations
+Element-wise operations:
+arr + 2
+arr * 3
+arr1 + arr2
+Mathematical functions:
+np.sqrt(arr)
+np.exp(arr)
+np.log(arr)
+np.sin(arr)
+________________________________________
+6. 🔹 Broadcasting (Very Important ⭐)
+•	Concept: operations between different shapes 
+•	Rules of broadcasting 
+•	Examples:
+arr + np.array([1,2,3])
+________________________________________
+7. 🔹 Shape Manipulation
+•	Reshaping:
+arr.reshape(2,3)
+•	Flattening:
+arr.flatten()
+•	Transpose:
+arr.T
+________________________________________
+8. 🔹 Aggregation Functions
+•	sum(), mean(), min(), max() 
+•	Axis concept:
+arr.sum(axis=0)
+arr.mean(axis=1)
+________________________________________
+9. 🔹 Stacking & Splitting Arrays
+•	np.vstack() 
+•	np.hstack() 
+•	np.split() 
+________________________________________
+10. 🔹 Copy vs View (Very Important ⭐)
+•	Copy → independent 
+•	View → linked 
+b = arr.view()
+c = arr.copy()
+________________________________________
+11. 🔹 Random Module
+•	Random numbers:
+np.random.rand()
+np.random.randint()
+np.random.randn()
+•	Seeding:
+np.random.seed(42)
+________________________________________
+12. 🔹 Linear Algebra (Basic)
+•	Dot product:
+np.dot(a, b)
+•	Matrix multiplication:
+a @ b
+•	Determinant, inverse:
+np.linalg.inv()
+np.linalg.det()
+________________________________________
+13. 🔹 File Handling
+•	Save/load arrays:
+np.save()
+np.load()
+•	Text files:
+np.loadtxt()
+________________________________________
+14. 🔹 Performance & Vectorization
+•	Why loops are slow 
+•	Vectorized operations 
+•	Timing comparison (%timeit in Jupyter) 
+________________________________________
+15. 🔹 Practical Use Cases
+•	Data preprocessing 
+•	Image processing (arrays as images) 
+•	ML pipelines
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pandas Notes – Full Structure
+1. 🔹 Introduction to Pandas
+•	What is Pandas? 
+•	Why use Pandas over NumPy 
+•	Key features: 
+o	Handles tabular data 
+o	Built on NumPy 
+•	Installation:
+pip install pandas
+•	Import:
+import pandas as pd
+________________________________________
+2. 🔹 Core Data Structures (VERY IMPORTANT ⭐)
+📌 Series (1D)
+s = pd.Series([10, 20, 30])
+•	Index + values 
+•	Custom index:
+pd.Series([10,20], index=['a','b'])
+________________________________________
+📌 DataFrame (2D)
+df = pd.DataFrame({
+    "name": ["A", "B"],
+    "age": [20, 25]
+})
+•	Rows & columns 
+•	Think of it like Excel table 
+________________________________________
+3. 🔹 Creating DataFrames
+•	From dictionary 
+•	From lists 
+•	From NumPy arrays 
+•	From CSV/Excel:
+pd.read_csv("file.csv")
+pd.read_excel("file.xlsx")
+________________________________________
+4. 🔹 Exploring Data
+•	Basic functions:
+df.head()
+df.tail()
+df.info()
+df.describe()
+df.shape
+df.columns
+________________________________________
+5. 🔹 Indexing & Selection (VERY IMPORTANT ⭐)
+This is one of the most tested topics.
+Column selection:
+df["age"]
+df[["age", "name"]]
+Row selection:
+df.loc[0]
+df.iloc[0]
+Filtering:
+df[df["age"] > 20]
+________________________________________
+6. 🔹 Data Cleaning
+•	Handling missing values:
+df.isnull()
+df.dropna()
+df.fillna()
+•	Removing duplicates:
+df.drop_duplicates()
+________________________________________
+7. 🔹 Data Manipulation
+•	Adding columns:
+df["salary"] = [1000, 2000]
+•	Renaming:
+df.rename(columns={"old": "new"})
+•	Dropping:
+df.drop(columns=["age"])
+________________________________________
+8. 🔹 Sorting & Ranking
+df.sort_values("age")
+df.sort_index()
+________________________________________
+9. 🔹 GroupBy (VERY IMPORTANT ⭐)
+This is core for data analysis.
+df.groupby("department")["salary"].mean()
+•	Aggregations: 
+o	sum(), mean(), count() 
+________________________________________
+10. 🔹 Merging & Joining (VERY IMPORTANT ⭐)
+•	merge():
+pd.merge(df1, df2, on="id")
+•	Types: 
+o	inner 
+o	left 
+o	right 
+o	outer 
+________________________________________
+11. 🔹 Concatenation
+pd.concat([df1, df2])
+________________________________________
+12. 🔹 Pivot Tables
+pd.pivot_table(df, values="salary", index="dept")
+________________________________________
+13. 🔹 Apply Functions
+df["age"].apply(lambda x: x + 1)
+________________________________________
+14. 🔹 Working with Dates
+pd.to_datetime(df["date"])
+________________________________________
+15. 🔹 File Handling
+•	Read:
+pd.read_csv()
+pd.read_excel()
+•	Write:
+df.to_csv()
+df.to_excel()
+________________________________________
+16. 🔹 Performance Tips
+•	Vectorization 
+•	Avoid loops 
+•	Use built-in functions 
+________________________________________
+17. 🔹 Real-world Use Cases
+•	Data cleaning 
+•	Data analysis 
+•	Feature engineering (ML)
+

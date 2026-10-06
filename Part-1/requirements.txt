@@ -1,0 +1,52 @@
+# LLM SDKs
+google-genai
+groq
+mistralai
+
+# Hugging Face
+transformers
+huggingface_hub
+langchain-huggingface
+torch
+accelerate
+sentencepiece
+safetensors
+
+# LangChain
+langchain
+langchain-community
+langchain-core
+langchain-google-genai
+langchain-groq
+langchain-mistralai
+
+# Environment variables
+python-dotenv
+
+# HTTP
+requests
+httpx
+
+# Data validation
+pydantic
+
+# Tokenization
+tiktoken
+
+# Vector stores
+faiss-cpu
+chromadb
+
+# Embeddings
+sentence-transformers
+
+# Document loaders
+pypdf
+unstructured
+beautifulsoup4
+lxml
+
+# Utilities
+numpy
+pandas
+tqdm
